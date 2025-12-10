@@ -1,0 +1,47 @@
+1.difference
+
+1. use:
+    1.@DataProvider: Provides data to a test method.
+    2. @Parameters: Passes parameters to a test method from the test.xml file.
+2. Data Source:
+    1. @DataProvider: Data is provided from a method.
+    2. @Parameters: Data is provided from the test.xml file.
+3. Data Type:
+    1. @DataProvider: Can provide any type of data (e.g., String, int, Object).
+    2. @Parameters: Can only provide String data.
+4. Number of Parameters:
+    1.@DataProvider: Can provide any number of parameters.
+    2.@Parameters: Can provide any number of parameters, but all must be Strings.
+5. Test Method Invocation:
+    1. @DataProvider: Invokes the test method multiple times with different sets of data.
+    2. @Parameters: Invokes the test method once with the provided parameters
+2.program
+package automation;
+import org.testng.annotations.Test;
+
+public class TestGroups {
+    @Test(priority = 1, groups = {"Sanity"})
+    public void testMethod1() {
+        System.out.println("Test Method 1 - Sanity");
+    }
+
+    @Test(priority = 2, groups = {"Regression"})
+    public void testMethod2() {
+        System.out.println("Test Method 2 - Regression");
+    }
+
+    @Test(priority = 3, groups = {"EndtoEnd"})
+    public void testMethod3() {
+        System.out.println("Test Method 3 - EndtoEnd");
+    }
+
+    @Test(priority = 4, groups = {"Sanity", "Regression"})
+    public void testMethod4() {
+        System.out.println("Test Method 4 - Sanity, Regression");
+    }
+
+    @Test(priority = 5, groups = {"EndtoEnd", "Regression"})
+    public void testMethod5() {
+        System.out.println("Test Method 5 - EndtoEnd, Regression");
+    }
+}
